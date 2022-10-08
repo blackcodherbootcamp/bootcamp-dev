@@ -1,0 +1,43 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/typescript-node-12
+{
+  "name": "Bootcamp Dev",
+  "dockerComposeFile": "docker-compose.dev-container.yml",
+  "service": "app",
+  "shutdownAction": "stopCompose",
+  // Open the sub-folder with the source code
+  "workspaceFolder": "/workspace",
+  // Make sure the required docker network and volume exist before creating containers
+  "initializeCommand": ".devcontainer/docker-init.sh",
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "#terminal.integrated.defaultProfile.linux#": "/bin/bash"
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "adpyke.vscode-sql-formatter",
+    "burkeholland.simple-react-snippets",
+    "dbaeumer.vscode-eslint",
+    "ecmel.vscode-html-css",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "github.classroom",
+    "htmlhint.vscode-htmlhint",
+    "mongodb.mongodb-vscode",
+    "ms-azuretools.vscode-docker",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-vscode-remote.remote-containers",
+    "ms-vsliveshare.vsliveshare",
+    "ms-vsonline.vsonline",
+    "ritwickdey.LiveServer",
+    "yzhang.markdown-all-in-one",
+    "Zignd.html-css-class-completion"
+  ],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // Left empty because this is handled by docker-compose for individual services,
+  // use this only for additional ports not needed by those services (e.g. ssh)
+  "forwardPorts": [],
+  // Install npm packages to the shared volume before running docker-compose in the container
+  "postCreateCommand": "./.devcontainer/post-create-command.sh"
+}
